@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+    <modelVersion>4.0.0</modelVersion>
+ 
+    <groupId>com.ticketanalysis</groupId>
+    <artifactId>every-ticket-calculations</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+ 
+    <name>Every Ticket Calculations</name>
+    <description>A Java application to analyze ticket sales data from Excel files</description>
+ 
+    <properties>
+        <!-- ✅ Set Java version to 24 -->
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+ 
+    <dependencies>
+        <!-- ✅ Apache POI core (for .xls and shared utilities) -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+ 
+        <!-- ✅ Apache POI OOXML (for .xlsx and .xlsm files) -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+ 
+        <!-- ✅ Apache XMLBeans (required by POI for parsing OOXML Excel files) -->
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>5.2.1</version>
+        </dependency>
+ 
+        <!-- ✅ Apache Commons IO (Fixes UnsynchronizedByteArrayOutputStream error) -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.15.1</version>
+        </dependency>
+ 
+        <!-- ✅ SLF4J Simple (basic logging) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+ 
+        <!-- ✅ Log4j2 API -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+ 
+        <!-- ✅ Log4j2 Core (Required for actual logging) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+    </dependencies>
+ 
+    <build>
+        <plugins>
+            <!-- ✅ Compiler plugin for Java 24 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <release>24</release>
+                </configuration>
+            </plugin>
+ 
+            <!-- ✅ Plugin to run the main class -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <mainClass>TicketAnalyzer</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+ 
